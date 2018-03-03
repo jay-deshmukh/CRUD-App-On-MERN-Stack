@@ -3,7 +3,6 @@ import BookList from './Booklist'
 import BookForm from './BookForm'
 import axios from 'axios'
 
-
 class BookBox extends React.Component{
     constructor(props){
         super(props);
@@ -49,6 +48,7 @@ class BookBox extends React.Component{
     }
     componentDidMount(){
         this.loadBooksFromServer();
+        //@todo :- Move a WebSocket And A Better Strategy 
         setInterval(this.loadBooksFromServer , this.props.pollInterval )
     }
     render(){
