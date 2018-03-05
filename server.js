@@ -8,7 +8,7 @@ var express     =   require('express'),
 var app = express();
 var router = express.Router();
 
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://localhost/test');// todo :: Use Habitat for ENV mgmt 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
@@ -34,7 +34,7 @@ router.get('/',function(req,res){
         message : "API Initialised"
     })
 }); 
-
+//MAKE ES6 using Airbnb ESLint && make abtract 
 router.route('/book')
     .get(function(req,res){
         Book.find({},function(err,books){
@@ -56,10 +56,10 @@ router.route('/book')
         res.json({status:"Success"});
         });
     })
-
+//Remove Con.Logs 
 router.route('/book/:id')
     .put(function(req,res){
-        console.log(req.body)
+        console.log(req.body);
         var book = {
             author : req.body.author,
             title : req.body.title
